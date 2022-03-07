@@ -51,20 +51,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kq-3E-hAC">
-                                <rect key="frame" x="20" y="384" width="374" height="86"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lipsum.com" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLS-8d-wwg">
-                                <rect key="frame" x="20" y="470" width="374" height="21.5"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzE-tE-lkg">
                                 <rect key="frame" x="128" y="522.5" width="158" height="51"/>
                                 <subviews>
@@ -98,19 +84,60 @@
                                     <constraint firstItem="00z-tw-5zG" firstAttribute="top" secondItem="xzE-tE-lkg" secondAttribute="top" id="tZD-be-ke4"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cG-kB-9zf">
+                                <rect key="frame" x="10" y="365" width="394" height="137.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kq-3E-hAC">
+                                        <rect key="frame" x="10" y="10" width="374" height="86"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EnH-lA-w3y">
+                                        <rect key="frame" x="0.0" y="106" width="394" height="31.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lipsum.com" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLS-8d-wwg">
+                                                <rect key="frame" x="5" y="5" width="384" height="21.5"/>
+                                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <constraints>
+                                            <constraint firstItem="LLS-8d-wwg" firstAttribute="centerX" secondItem="EnH-lA-w3y" secondAttribute="centerX" id="Efc-I2-tgu"/>
+                                            <constraint firstItem="LLS-8d-wwg" firstAttribute="centerY" secondItem="EnH-lA-w3y" secondAttribute="centerY" id="JIZ-Re-m1b"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LLS-8d-wwg" secondAttribute="trailing" id="Tb3-PK-d3G"/>
+                                            <constraint firstAttribute="bottom" secondItem="LLS-8d-wwg" secondAttribute="bottom" constant="5" id="U3k-uX-qc9"/>
+                                            <constraint firstItem="LLS-8d-wwg" firstAttribute="leading" secondItem="EnH-lA-w3y" secondAttribute="leading" constant="5" id="dSG-Gm-cXP"/>
+                                            <constraint firstItem="LLS-8d-wwg" firstAttribute="top" secondItem="EnH-lA-w3y" secondAttribute="top" constant="5" id="sPE-da-6ef"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstItem="1Kq-3E-hAC" firstAttribute="centerX" secondItem="7cG-kB-9zf" secondAttribute="centerX" id="17R-HF-HBo"/>
+                                    <constraint firstAttribute="bottom" secondItem="EnH-lA-w3y" secondAttribute="bottom" id="8ZD-Hl-0it"/>
+                                    <constraint firstItem="1Kq-3E-hAC" firstAttribute="top" secondItem="7cG-kB-9zf" secondAttribute="top" constant="10" id="AJi-Dk-4oL"/>
+                                    <constraint firstItem="EnH-lA-w3y" firstAttribute="top" secondItem="1Kq-3E-hAC" secondAttribute="bottom" constant="10" id="AjF-bV-WUl"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1Kq-3E-hAC" secondAttribute="trailing" constant="10" id="CSh-5l-v2f"/>
+                                    <constraint firstAttribute="trailing" secondItem="EnH-lA-w3y" secondAttribute="trailing" id="Uqz-My-UWn"/>
+                                    <constraint firstItem="EnH-lA-w3y" firstAttribute="leading" secondItem="7cG-kB-9zf" secondAttribute="leading" id="bmU-e6-jci"/>
+                                    <constraint firstItem="1Kq-3E-hAC" firstAttribute="leading" secondItem="7cG-kB-9zf" secondAttribute="leading" constant="10" id="g8x-GQ-Mm0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b6u-k0-vAY"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstItem="1Kq-3E-hAC" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="20" id="MTQ-je-vaS"/>
-                            <constraint firstItem="xzE-tE-lkg" firstAttribute="top" secondItem="LLS-8d-wwg" secondAttribute="bottom" constant="31" id="Vaa-1H-JQZ"/>
+                            <constraint firstItem="xzE-tE-lkg" firstAttribute="top" secondItem="7cG-kB-9zf" secondAttribute="bottom" constant="20" id="9I4-HR-gog"/>
                             <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="xzE-tE-lkg" secondAttribute="trailing" constant="128" id="XCN-7K-WJX"/>
                             <constraint firstItem="xzE-tE-lkg" firstAttribute="centerY" secondItem="ijz-uN-iim" secondAttribute="centerY" constant="100" id="fq8-Vh-Qj0"/>
                             <constraint firstItem="xzE-tE-lkg" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="128" id="k25-zb-dVb"/>
-                            <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="LLS-8d-wwg" secondAttribute="trailing" constant="20" id="oY6-QJ-RfR"/>
-                            <constraint firstItem="LLS-8d-wwg" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="20" id="vIG-dJ-jQz"/>
-                            <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="1Kq-3E-hAC" secondAttribute="trailing" constant="20" id="wKo-We-sHP"/>
-                            <constraint firstItem="LLS-8d-wwg" firstAttribute="top" secondItem="1Kq-3E-hAC" secondAttribute="bottom" id="wQ4-6a-nSO"/>
+                            <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="7cG-kB-9zf" secondAttribute="trailing" constant="10" id="sum-9N-4Nu"/>
+                            <constraint firstItem="7cG-kB-9zf" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="10" id="ujY-5U-pfL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quote" image="quote.bubble" catalog="system" id="ONc-71-H69"/>
@@ -118,6 +145,7 @@
                         <outlet property="btnSave" destination="00z-tw-5zG" id="x6x-dV-htw"/>
                         <outlet property="lbAuthor" destination="LLS-8d-wwg" id="b3G-11-dMW"/>
                         <outlet property="lbQuote" destination="1Kq-3E-hAC" id="y1q-U7-vCU"/>
+                        <outlet property="quoteView" destination="7cG-kB-9zf" id="yGV-xW-1zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5H-eP-Nty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,8 +223,8 @@
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -11,6 +11,7 @@ class QuoteViewController: UIViewController {
     @IBOutlet weak var lbQuote: UILabel!
     @IBOutlet weak var lbAuthor: UILabel!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var quoteView: UIView!
     
     struct APIQuote: Decodable {
         enum Category: String, Decodable {
@@ -116,7 +117,12 @@ class QuoteViewController: UIViewController {
     }
     
     private func setQuoteLabels(_ quote: String, from: String) {
-        lbQuote.text = "“"+quote+"”"
-        lbAuthor.text = from
+        UIView.transition(with: quoteView,
+                      duration: 0.25,
+                       options: .transitionCurlDown,
+                    animations: { [weak self] in
+                        self!.lbQuote.text = "“"+quote+"”"
+                        self!.lbAuthor.text = from
+                 }, completion: nil)
     }
 }
