@@ -116,6 +116,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Quote" image="quote.bubble" catalog="system" id="ONc-71-H69"/>
                     <connections>
+                        <outlet property="btnSave" destination="00z-tw-5zG" id="x6x-dV-htw"/>
                         <outlet property="lbAuthor" destination="LLS-8d-wwg" id="b3G-11-dMW"/>
                         <outlet property="lbQuote" destination="1Kq-3E-hAC" id="y1q-U7-vCU"/>
                     </connections>

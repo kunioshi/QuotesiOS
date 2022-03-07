@@ -16,6 +16,7 @@
 		FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */; };
 		FD68C7A827D64CB40018CD61 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */; };
 		FD68C7B227D656A00018CD61 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B127D656A00018CD61 /* QuoteCell.swift */; };
+		FD68C7B527D672A40018CD61 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B427D672A40018CD61 /* QuoteController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
 		FD68C7B127D656A00018CD61 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
+		FD68C7B427D672A40018CD61 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				FD68C78327D634A60018CD61 /* AppDelegate.swift */,
 				FD68C78527D634A60018CD61 /* SceneDelegate.swift */,
 				FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */,
+				FD68C7B427D672A40018CD61 /* QuoteController.swift */,
 				FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */,
 				FD68C7B127D656A00018CD61 /* QuoteCell.swift */,
 				FD68C78927D634A60018CD61 /* Main.storyboard */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD68C7B527D672A40018CD61 /* QuoteController.swift in Sources */,
 				FD68C7B227D656A00018CD61 /* QuoteCell.swift in Sources */,
 				FD68C78427D634A60018CD61 /* AppDelegate.swift in Sources */,
 				FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */,

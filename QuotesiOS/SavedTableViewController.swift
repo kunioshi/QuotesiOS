@@ -9,19 +9,11 @@ import UIKit
 import CoreData
 
 class SavedTableViewController: UITableViewController {
-    static var quoteList = [QuoteItem]()
-    static let context: NSManagedObjectContext =
-        (UIApplication.shared.delegate as! AppDelegate)
-        .persistentContainer.viewContext
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         do {
-            SavedTableViewController.quoteList = try SavedTableViewController.context.fetch(QuoteItem.fetchRequest())
-            
-            // Wipe DB
-//            deleteDBData()
+            QuoteController.quoteList = try QuoteController.context.fetch(QuoteItem.fetchRequest())
         } catch let error as NSError {
             print("Couldn't fetch quotes! \(error)")
         }
@@ -34,30 +26,17 @@ class SavedTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-    
-    private func deleteDBData() {
-        for quote in SavedTableViewController.quoteList {
-            SavedTableViewController.context.delete(quote)
-        }
-        
-        do {
-            try SavedTableViewController.context.save()
-        } catch let error as NSError {
-            print("Couldn't delete all DB data! Error: \(error)")
-        }
-        
-    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SavedTableViewController.quoteList.count
+        return QuoteController.quoteList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let quoteCell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteCell
 
-        let quote = SavedTableViewController.quoteList[indexPath.row]
-        quoteCell.lbQuote.text = quote.content
+        let quote = QuoteController.quoteList[indexPath.row]
+        quoteCell.lbQuote.text = "“"+quote.content!+"”"
         quoteCell.lbAuthor.text = quote.author
 
         return quoteCell

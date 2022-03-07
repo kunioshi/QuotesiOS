@@ -10,16 +10,17 @@ import UIKit
 class QuoteViewController: UIViewController {
     @IBOutlet weak var lbQuote: UILabel!
     @IBOutlet weak var lbAuthor: UILabel!
+    @IBOutlet weak var btnSave: UIButton!
     
     struct APIQuote: Decodable {
         enum Category: String, Decodable {
             case swift, combine, debugging, xcode
         }
         
-        let _id: String?
+        let _id: String
         let tags: [String]
-        let content: String?
-        let author: String?
+        let content: String
+        let author: String
         let authorSlug: String
         let length: UInt
         let dateAdded: String
@@ -27,50 +28,60 @@ class QuoteViewController: UIViewController {
     }
     
     private var currentQuote: APIQuote?
-
-    public let quoteView: UITextView = {
-        let quoteView = UITextView()
-        quoteView.contentMode = .scaleAspectFill
-        quoteView.backgroundColor = .lightGray
-        
-        return quoteView
-    }()
-
-    private let boldAttr: [NSAttributedString.Key: Any] = [
-        .foregroundColor: UIColor.black,
-        .font: UIFont.boldSystemFont(ofSize: 24)
-    ]
-
-    private let normalAttr: [NSAttributedString.Key: Any] = [
-        .foregroundColor: UIColor.darkGray,
-        .font: UIFont.systemFont(ofSize: 18)
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupQuoteView()
+        getAPIQuote()
+        checkCurrentQuote()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Covers the case that the user deleted the `currentQuote` from the `quoteList`
+        checkCurrentQuote()
     }
     
     @IBAction func getNewQuote(_ sender: Any) {
-        getQuote()
+        getAPIQuote()
+        checkCurrentQuote()
     }
     
     @IBAction func saveQuote(_ sender: UIButton) {
-        let newQuote = QuoteItem(context: SavedTableViewController.context)
-        
-        newQuote.id = currentQuote?._id
-        newQuote.content = currentQuote?.content
-        newQuote.author = currentQuote?.author
-
-        SavedTableViewController.context.insert(newQuote)
-        do {
-            try SavedTableViewController.context.save()
-            SavedTableViewController.quoteList.append(newQuote)
-            showAlert(title: "Saved", msg: "Quote was saved!")
-            print(SavedTableViewController.quoteList)
-        } catch {
-            showAlert(title: "Error", msg: "Couldn't save this quote!\nPlease try again.")
+        if let curQuote = currentQuote {
+            if QuoteController.isQuoteSaved(id: curQuote._id) {
+                if QuoteController.deleteQuote(id: curQuote._id) {
+                    showAlert(title: "Removed", msg: "\(curQuote.author)'s quote was removed from your list. 😢")
+                    return
+                } else {
+                    showAlert(title: "Error", msg: "Couldn't remove \(curQuote.author)'s quote from your list.\nPlease, try again.")
+                }
+            }
+            
+            let newQuote = QuoteController.createQuote(
+                id: curQuote._id,
+                content: curQuote.content,
+                author: curQuote.author
+            )
+            if QuoteController.saveQuote(newQuote) {
+                showAlert(title: "Saved", msg: "\(curQuote.author)'s quote was added to your favorite/saved list.")
+                
+                checkCurrentQuote()
+                return
+            } else {
+                showAlert(title: "Error", msg: "The app couldn't save the current quote.\nPlease, try again.")
+                return
+            }
+        } else {
+            showAlert(title: "Error", msg: "The app is confuse... Is there a quote? Try to save another quote.")
+        }
+    }
+    
+    /// Verify if the `currentQuote` is already saved. Changes the Save Button image to correspond to it.
+    private func checkCurrentQuote() {
+        if QuoteController.isQuoteSaved(id: currentQuote!._id) {
+            btnSave.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            btnSave.setImage(UIImage(systemName: "star"), for: .normal)
         }
     }
     
@@ -80,52 +91,26 @@ class QuoteViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func setupQuoteView() {
-        getQuote()
-        
-        // Initial setup the Quote
-        quoteView.frame = CGRect(x: 0, y: 0, width: view.frame.width-20, height: 0)
-        quoteView.translatesAutoresizingMaskIntoConstraints = true
-        quoteView.sizeToFit()
-        quoteView.isScrollEnabled = false
-        
-        updateFrame(to: view)
-    }
-    
-    private func getQuote() {
+    private func getAPIQuote() {
         let urlString = "https://api.quotable.io/random"
         let url = URL(string: urlString)!
         
         guard let json = try? Data(contentsOf: url) else {
-            setQuote("Error trying to get Quote", from: "System")
+            showAlert(title: "Error", msg: "The app wasn't able to get Quote from server!\nPlease, close and open the app again.")
             return
         }
         
         guard let apiQuote = try? JSONDecoder().decode(APIQuote.self, from: json) else {
-            setQuote("Error trying to decode Quote", from: "System")
+            showAlert(title: "Error", msg: "The app wasn't able to decode the server's message!\nPlease, close and open the app again.")
             return
         }
         
         currentQuote = apiQuote
-        setQuote(apiQuote.content!, from: apiQuote.author!)
+        setQuoteLabels(apiQuote.content, from: apiQuote.author)
     }
     
-    private func setQuote(_ quote: String, from: String) {
-//        let quoteAttr = NSMutableAttributedString(string: "\""+quote+"\"\n", attributes: boldAttr)
-//        let fromAttr = NSMutableAttributedString(string: from, attributes: normalAttr)
-//
-//        quoteAttr.append(fromAttr)
-//
-//        quoteView.attributedText = quoteAttr
-        
-        lbQuote.text = quote
+    private func setQuoteLabels(_ quote: String, from: String) {
+        lbQuote.text = "“"+quote+"”"
         lbAuthor.text = from
-    }
-    
-    /// Update the `quoteView` frame to fit the current text
-    private func updateFrame(to view: UIView) {
-        quoteView.textAlignment = .center
-        quoteView.center = view.center
-        quoteView.center.y -= view.frame.height/4
     }
 }
