@@ -14,7 +14,7 @@
 		FD68C79027D634B10018CD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD68C78F27D634B10018CD61 /* Assets.xcassets */; };
 		FD68C79327D634B10018CD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD68C79127D634B10018CD61 /* LaunchScreen.storyboard */; };
 		FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */; };
-		FD68C7A427D64C060018CD61 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A327D64C060018CD61 /* SavedViewController.swift */; };
+		FD68C7A827D64CB40018CD61 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A727D64CB40018CD61 /* SavedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		FD68C79227D634B10018CD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD68C79427D634B10018CD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
-		FD68C7A327D64C060018CD61 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		FD68C7A727D64CB40018CD61 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				FD68C78327D634A60018CD61 /* AppDelegate.swift */,
-				FD68C7A327D64C060018CD61 /* SavedViewController.swift */,
+				FD68C7A727D64CB40018CD61 /* SavedViewController.swift */,
 				FD68C78527D634A60018CD61 /* SceneDelegate.swift */,
+				FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */,
 				FD68C78927D634A60018CD61 /* Main.storyboard */,
 				FD68C78F27D634B10018CD61 /* Assets.xcassets */,
 				FD68C79127D634B10018CD61 /* LaunchScreen.storyboard */,
 				FD68C79427D634B10018CD61 /* Info.plist */,
 				FD68C78C27D634A60018CD61 /* QuotesiOS.xcdatamodeld */,
-				FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */,
 			);
 			path = QuotesiOS;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 				FD68C78427D634A60018CD61 /* AppDelegate.swift in Sources */,
 				FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */,
 				FD68C78E27D634A60018CD61 /* QuotesiOS.xcdatamodeld in Sources */,
-				FD68C7A427D64C060018CD61 /* SavedViewController.swift in Sources */,
+				FD68C7A827D64CB40018CD61 /* SavedViewController.swift in Sources */,
 				FD68C78627D634A60018CD61 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

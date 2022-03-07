@@ -46,7 +46,7 @@
         <!--Quote-->
         <scene sceneID="Mjb-fn-RYe">
             <objects>
-                <viewController id="aag-Ey-9e3" sceneMemberID="viewController">
+                <viewController id="aag-Ey-9e3" customClass="QuoteViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ijz-uN-iim">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +92,7 @@
         <!--Saved-->
         <scene sceneID="hP3-5l-xyj">
             <objects>
-                <tableViewController id="PbY-fm-bGo" sceneMemberID="viewController">
+                <tableViewController id="PbY-fm-bGo" customClass="SavedViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnn-Lu-VvW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
