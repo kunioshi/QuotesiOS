@@ -68,6 +68,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzo-zL-OdM">
                                 <rect key="frame" x="198" y="432" width="18" height="22"/>
                                 <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="getNewQuote:" destination="aag-Ey-9e3" eventType="touchUpInside" id="yoN-Ll-m0M"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b6u-k0-vAY"/>
@@ -84,6 +87,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quote" image="quote.bubble" catalog="system" id="ONc-71-H69"/>
+                    <connections>
+                        <outlet property="lbAuthor" destination="LLS-8d-wwg" id="b3G-11-dMW"/>
+                        <outlet property="lbQuote" destination="1Kq-3E-hAC" id="y1q-U7-vCU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5H-eP-Nty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,13 +105,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="izo-66-5bk">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="91" id="izo-66-5bk" customClass="QuoteCell" customModule="QuotesiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="izo-66-5bk" id="UhY-tz-7Qh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&quot;" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKw-mn-D2e">
+                                            <rect key="frame" x="10" y="10" width="394" height="43"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lipsum.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7C-QV-HGc">
+                                            <rect key="frame" x="10" y="58" width="394" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="f7C-QV-HGc" secondAttribute="trailing" constant="10" id="3PE-PV-auw"/>
+                                        <constraint firstItem="PKw-mn-D2e" firstAttribute="top" secondItem="UhY-tz-7Qh" secondAttribute="top" constant="10" id="3Pn-MF-W64"/>
+                                        <constraint firstItem="f7C-QV-HGc" firstAttribute="leading" secondItem="UhY-tz-7Qh" secondAttribute="leading" constant="10" id="8mj-vq-ALa"/>
+                                        <constraint firstItem="f7C-QV-HGc" firstAttribute="top" secondItem="PKw-mn-D2e" secondAttribute="bottom" constant="5" id="UpF-Ed-gb4"/>
+                                        <constraint firstAttribute="trailing" secondItem="PKw-mn-D2e" secondAttribute="trailing" constant="10" id="f3g-dU-V9N"/>
+                                        <constraint firstAttribute="bottom" secondItem="f7C-QV-HGc" secondAttribute="bottom" constant="10" id="oVF-mF-jPa"/>
+                                        <constraint firstItem="PKw-mn-D2e" firstAttribute="leading" secondItem="UhY-tz-7Qh" secondAttribute="leading" constant="10" id="z7O-6Z-3fM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lbAuthor" destination="f7C-QV-HGc" id="M9X-Jr-pJ0"/>
+                                    <outlet property="lbQuote" destination="PKw-mn-D2e" id="v1g-zO-s6L"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -116,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfa-Z8-iuk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1490" y="814"/>
+            <point key="canvasLocation" x="1489.8550724637682" y="813.61607142857144"/>
         </scene>
     </scenes>
     <resources>
