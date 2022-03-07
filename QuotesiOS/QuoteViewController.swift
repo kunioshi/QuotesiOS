@@ -32,6 +32,9 @@ class QuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Force the DB load
+        QuoteController.getQuotes()
+        
         getAPIQuote()
         checkCurrentQuote()
     }
@@ -51,9 +54,12 @@ class QuoteViewController: UIViewController {
             if QuoteController.isQuoteSaved(id: curQuote._id) {
                 if QuoteController.deleteQuote(id: curQuote._id) {
                     showAlert(title: "Removed", msg: "\(curQuote.author)'s quote was removed from your list. 😢")
+                    
+                    checkCurrentQuote()
                     return
                 } else {
                     showAlert(title: "Error", msg: "Couldn't remove \(curQuote.author)'s quote from your list.\nPlease, try again.")
+                    return
                 }
             }
             

@@ -29,6 +29,8 @@ class QuoteController {
             }
         }
         
+        QuoteController.quoteList.sort(by: { $0.dateAdded! > $1.dateAdded! })
+        
         return QuoteController.quoteList
     }
     
@@ -66,6 +68,9 @@ class QuoteController {
         
         if let quote = quotes.first {
             QuoteController.context.delete(quote)
+            
+            let index = QuoteController.quoteList.firstIndex(of: quote)
+            QuoteController.quoteList.remove(at: index!)
             
             return saveContext()
         }

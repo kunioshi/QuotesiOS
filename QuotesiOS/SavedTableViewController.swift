@@ -12,12 +12,6 @@ class SavedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            QuoteController.quoteList = try QuoteController.context.fetch(QuoteItem.fetchRequest())
-        } catch let error as NSError {
-            print("Couldn't fetch quotes! \(error)")
-        }
-        
         // Config the rows to have dynamic height
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
