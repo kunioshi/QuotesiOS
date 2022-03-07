@@ -16,10 +16,10 @@ class QuoteViewController: UIViewController {
             case swift, combine, debugging, xcode
         }
         
-        let _id: String
+        let _id: String?
         let tags: [String]
-        let content: String
-        let author: String
+        let content: String?
+        let author: String?
         let authorSlug: String
         let length: UInt
         let dateAdded: String
@@ -56,6 +56,30 @@ class QuoteViewController: UIViewController {
         getQuote()
     }
     
+    @IBAction func saveQuote(_ sender: UIButton) {
+        let newQuote = QuoteItem(context: SavedTableViewController.context)
+        
+        newQuote.id = currentQuote?._id
+        newQuote.content = currentQuote?.content
+        newQuote.author = currentQuote?.author
+
+        SavedTableViewController.context.insert(newQuote)
+        do {
+            try SavedTableViewController.context.save()
+            SavedTableViewController.quoteList.append(newQuote)
+            showAlert(title: "Saved", msg: "Quote was saved!")
+            print(SavedTableViewController.quoteList)
+        } catch {
+            showAlert(title: "Error", msg: "Couldn't save this quote!\nPlease try again.")
+        }
+    }
+    
+    private func showAlert(title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     private func setupQuoteView() {
         getQuote()
         
@@ -83,7 +107,7 @@ class QuoteViewController: UIViewController {
         }
         
         currentQuote = apiQuote
-        setQuote(apiQuote.content, from: apiQuote.author)
+        setQuote(apiQuote.content!, from: apiQuote.author!)
     }
     
     private func setQuote(_ quote: String, from: String) {

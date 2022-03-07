@@ -65,21 +65,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzo-zL-OdM">
-                                <rect key="frame" x="198" y="432" width="18" height="22"/>
-                                <state key="normal" image="arrow.clockwise" catalog="system"/>
-                                <connections>
-                                    <action selector="getNewQuote:" destination="aag-Ey-9e3" eventType="touchUpInside" id="yoN-Ll-m0M"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzE-tE-lkg">
+                                <rect key="frame" x="162" y="432" width="90" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzo-zL-OdM">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Vzo-zL-OdM" secondAttribute="height" multiplier="1:1" id="LJh-E7-i5x"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                        <connections>
+                                            <action selector="getNewQuote:" destination="aag-Ey-9e3" eventType="touchUpInside" id="yoN-Ll-m0M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00z-tw-5zG">
+                                        <rect key="frame" x="60" y="0.0" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="00z-tw-5zG" secondAttribute="height" multiplier="1:1" id="zFz-MA-5XQ"/>
+                                        </constraints>
+                                        <state key="normal" image="star" catalog="system"/>
+                                        <connections>
+                                            <action selector="saveQuote:" destination="aag-Ey-9e3" eventType="touchUpInside" id="SLN-KR-k8r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xzE-tE-lkg" secondAttribute="height" multiplier="3:1" id="C1U-jF-bEY"/>
+                                    <constraint firstItem="Vzo-zL-OdM" firstAttribute="leading" secondItem="xzE-tE-lkg" secondAttribute="leading" id="LsJ-Rx-JMA"/>
+                                    <constraint firstAttribute="bottom" secondItem="00z-tw-5zG" secondAttribute="bottom" id="P6O-sN-biD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vzo-zL-OdM" secondAttribute="bottom" id="TgS-yU-Fno"/>
+                                    <constraint firstItem="Vzo-zL-OdM" firstAttribute="top" secondItem="xzE-tE-lkg" secondAttribute="top" id="YjT-aS-lf5"/>
+                                    <constraint firstAttribute="trailing" secondItem="00z-tw-5zG" secondAttribute="trailing" id="qnf-2g-Ijo"/>
+                                    <constraint firstItem="00z-tw-5zG" firstAttribute="top" secondItem="xzE-tE-lkg" secondAttribute="top" id="tZD-be-ke4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b6u-k0-vAY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="1Kq-3E-hAC" firstAttribute="centerY" secondItem="ijz-uN-iim" secondAttribute="centerY" constant="-100" id="CeJ-ex-oCt"/>
-                            <constraint firstItem="Vzo-zL-OdM" firstAttribute="top" secondItem="LLS-8d-wwg" secondAttribute="bottom" constant="20" id="HiA-MT-M3I"/>
-                            <constraint firstItem="Vzo-zL-OdM" firstAttribute="centerX" secondItem="ijz-uN-iim" secondAttribute="centerX" id="JXP-GI-Z0f"/>
                             <constraint firstItem="1Kq-3E-hAC" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="20" id="MTQ-je-vaS"/>
+                            <constraint firstItem="xzE-tE-lkg" firstAttribute="top" secondItem="LLS-8d-wwg" secondAttribute="bottom" constant="20" id="Vaa-1H-JQZ"/>
+                            <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="xzE-tE-lkg" secondAttribute="trailing" constant="162" id="b5c-nR-QPJ"/>
+                            <constraint firstItem="xzE-tE-lkg" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="162" id="bHH-OZ-2tb"/>
                             <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="LLS-8d-wwg" secondAttribute="trailing" constant="20" id="oY6-QJ-RfR"/>
                             <constraint firstItem="LLS-8d-wwg" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="20" id="vIG-dJ-jQz"/>
                             <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="1Kq-3E-hAC" secondAttribute="trailing" constant="20" id="wKo-We-sHP"/>
@@ -99,7 +127,7 @@
         <!--Saved-->
         <scene sceneID="hP3-5l-xyj">
             <objects>
-                <tableViewController id="PbY-fm-bGo" customClass="SavedViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="PbY-fm-bGo" customClass="SavedTableViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnn-Lu-VvW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,6 +185,7 @@
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="list.star" catalog="system" width="128" height="94"/>
         <image name="quote.bubble" catalog="system" width="128" height="110"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

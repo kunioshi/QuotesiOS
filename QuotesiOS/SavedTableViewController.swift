@@ -6,40 +6,62 @@
 //
 
 import UIKit
+import CoreData
 
-class SavedViewController: UITableViewController {
-
+class SavedTableViewController: UITableViewController {
+    static var quoteList = [QuoteItem]()
+    static let context: NSManagedObjectContext =
+        (UIApplication.shared.delegate as! AppDelegate)
+        .persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        do {
+            SavedTableViewController.quoteList = try SavedTableViewController.context.fetch(QuoteItem.fetchRequest())
+            
+            // Wipe DB
+//            deleteDBData()
+        } catch let error as NSError {
+            print("Couldn't fetch quotes! \(error)")
+        }
+        
+        // Config the rows to have dynamic height
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    private func deleteDBData() {
+        for quote in SavedTableViewController.quoteList {
+            SavedTableViewController.context.delete(quote)
+        }
+        
+        do {
+            try SavedTableViewController.context.save()
+        } catch let error as NSError {
+            print("Couldn't delete all DB data! Error: \(error)")
+        }
+        
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return SavedTableViewController.quoteList.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let quoteCell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteCell
 
-        // Configure the cell...
+        let quote = SavedTableViewController.quoteList[indexPath.row]
+        quoteCell.lbQuote.text = quote.content
+        quoteCell.lbAuthor.text = quote.author
 
-        return cell
+        return quoteCell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
