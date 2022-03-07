@@ -52,24 +52,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kq-3E-hAC">
-                                <rect key="frame" x="20" y="305" width="374" height="86"/>
+                                <rect key="frame" x="20" y="384" width="374" height="86"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lipsum.com" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLS-8d-wwg">
-                                <rect key="frame" x="20" y="391" width="374" height="21"/>
+                                <rect key="frame" x="20" y="470" width="374" height="21.5"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzE-tE-lkg">
-                                <rect key="frame" x="162" y="432" width="90" height="30"/>
+                                <rect key="frame" x="128" y="522.5" width="158" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzo-zL-OdM">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Vzo-zL-OdM" secondAttribute="height" multiplier="1:1" id="LJh-E7-i5x"/>
                                         </constraints>
@@ -79,7 +79,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00z-tw-5zG">
-                                        <rect key="frame" x="60" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="136" y="0.0" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="00z-tw-5zG" secondAttribute="height" multiplier="1:1" id="zFz-MA-5XQ"/>
                                         </constraints>
@@ -90,10 +90,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="xzE-tE-lkg" secondAttribute="height" multiplier="3:1" id="C1U-jF-bEY"/>
                                     <constraint firstItem="Vzo-zL-OdM" firstAttribute="leading" secondItem="xzE-tE-lkg" secondAttribute="leading" id="LsJ-Rx-JMA"/>
-                                    <constraint firstAttribute="bottom" secondItem="00z-tw-5zG" secondAttribute="bottom" id="P6O-sN-biD"/>
-                                    <constraint firstAttribute="bottom" secondItem="Vzo-zL-OdM" secondAttribute="bottom" id="TgS-yU-Fno"/>
+                                    <constraint firstAttribute="bottom" secondItem="00z-tw-5zG" secondAttribute="bottom" constant="29" id="P6O-sN-biD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vzo-zL-OdM" secondAttribute="bottom" constant="29" id="TgS-yU-Fno"/>
                                     <constraint firstItem="Vzo-zL-OdM" firstAttribute="top" secondItem="xzE-tE-lkg" secondAttribute="top" id="YjT-aS-lf5"/>
                                     <constraint firstAttribute="trailing" secondItem="00z-tw-5zG" secondAttribute="trailing" id="qnf-2g-Ijo"/>
                                     <constraint firstItem="00z-tw-5zG" firstAttribute="top" secondItem="xzE-tE-lkg" secondAttribute="top" id="tZD-be-ke4"/>
@@ -103,11 +102,11 @@
                         <viewLayoutGuide key="safeArea" id="b6u-k0-vAY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="1Kq-3E-hAC" firstAttribute="centerY" secondItem="ijz-uN-iim" secondAttribute="centerY" constant="-100" id="CeJ-ex-oCt"/>
                             <constraint firstItem="1Kq-3E-hAC" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="20" id="MTQ-je-vaS"/>
-                            <constraint firstItem="xzE-tE-lkg" firstAttribute="top" secondItem="LLS-8d-wwg" secondAttribute="bottom" constant="20" id="Vaa-1H-JQZ"/>
-                            <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="xzE-tE-lkg" secondAttribute="trailing" constant="162" id="b5c-nR-QPJ"/>
-                            <constraint firstItem="xzE-tE-lkg" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="162" id="bHH-OZ-2tb"/>
+                            <constraint firstItem="xzE-tE-lkg" firstAttribute="top" secondItem="LLS-8d-wwg" secondAttribute="bottom" constant="31" id="Vaa-1H-JQZ"/>
+                            <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="xzE-tE-lkg" secondAttribute="trailing" constant="128" id="XCN-7K-WJX"/>
+                            <constraint firstItem="xzE-tE-lkg" firstAttribute="centerY" secondItem="ijz-uN-iim" secondAttribute="centerY" constant="100" id="fq8-Vh-Qj0"/>
+                            <constraint firstItem="xzE-tE-lkg" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="128" id="k25-zb-dVb"/>
                             <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="LLS-8d-wwg" secondAttribute="trailing" constant="20" id="oY6-QJ-RfR"/>
                             <constraint firstItem="LLS-8d-wwg" firstAttribute="leading" secondItem="b6u-k0-vAY" secondAttribute="leading" constant="20" id="vIG-dJ-jQz"/>
                             <constraint firstItem="b6u-k0-vAY" firstAttribute="trailing" secondItem="1Kq-3E-hAC" secondAttribute="trailing" constant="20" id="wKo-We-sHP"/>
@@ -123,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5H-eP-Nty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="580" y="814"/>
+            <point key="canvasLocation" x="579.71014492753625" y="813.61607142857144"/>
         </scene>
         <!--Saved-->
         <scene sceneID="hP3-5l-xyj">
