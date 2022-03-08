@@ -22,5 +22,5 @@ The current project is developed using the following environment:
 - JSON
 
 ## Special Thanks
-Quick Logo and Icon - ![Marcos Visolli](https://mvisolli.com.br/)
+Quick Logo and Icon - ![Marcos Visolli](https://mvisolli.com.br/) <br/>
 Quotes - ![Luke Peavey](quotable.io)
