@@ -32,6 +32,11 @@ class SavedTableViewController: UITableViewController {
         let quote = QuoteController.quoteList[indexPath.row]
         quoteCell.lbQuote.text = "“"+quote.content!+"”"
         quoteCell.lbAuthor.text = quote.author
+        
+        // Change background color
+        if indexPath.row % 2 == 1 {
+            quoteCell.backgroundColor = .systemGray4
+        }
 
         return quoteCell
     }

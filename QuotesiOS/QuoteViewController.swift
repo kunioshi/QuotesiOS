@@ -12,6 +12,7 @@ class QuoteViewController: UIViewController {
     @IBOutlet weak var lbAuthor: UILabel!
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var quoteView: UIView!
+    @IBOutlet weak var transitionQuoteView: UIView!
     
     struct APIQuote: Decodable {
         enum Category: String, Decodable {
@@ -32,6 +33,10 @@ class QuoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Format UI elements
+        quoteView.layer.cornerRadius = 8
+        quoteView.layer.masksToBounds = true
         
         // Force the DB load
         QuoteController.getQuotes()
@@ -117,7 +122,7 @@ class QuoteViewController: UIViewController {
     }
     
     private func setQuoteLabels(_ quote: String, from: String) {
-        UIView.transition(with: quoteView,
+        UIView.transition(with: transitionQuoteView,
                       duration: 0.25,
                        options: .transitionCurlDown,
                     animations: { [weak self] in

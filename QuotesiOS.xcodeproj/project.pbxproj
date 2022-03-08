@@ -71,8 +71,8 @@
 				FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */,
 				FD68C7B127D656A00018CD61 /* QuoteCell.swift */,
 				FD68C78927D634A60018CD61 /* Main.storyboard */,
-				FD68C78F27D634B10018CD61 /* Assets.xcassets */,
 				FD68C79127D634B10018CD61 /* LaunchScreen.storyboard */,
+				FD68C78F27D634B10018CD61 /* Assets.xcassets */,
 				FD68C79427D634B10018CD61 /* Info.plist */,
 				FD68C78C27D634A60018CD61 /* QuotesiOS.xcdatamodeld */,
 			);
