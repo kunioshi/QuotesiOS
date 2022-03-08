@@ -2,6 +2,10 @@
 "Quotes" shows you famous quotes to, hopefully, give you enlightment! 
 You can also save/favorite the quotes that you liked to review later or show to your friends!
 
+![Loading Screen - Screenshot](/Screenshots/AppSS-Splash.png)
+![Random Quote Page - Screenshot](/Screenshots/AppSS-QuotePage.png)
+![Saved List Page - Screenshot](/Screenshots/AppSS-ListPage.png)
+
 ## Disclaimer
 This project's aim is mainly for self-studying. I don't garantee the safety of the stored data neither the compatibility with all devices nor future fixes and updates.
 All the Quotes are provided by "quotable.io" by Luke Peavey.
