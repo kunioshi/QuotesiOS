@@ -3,10 +3,10 @@
 You can also save/favorite the quotes that you liked to review later or show to your friends!
 
 <p>
-    <img src="/Screenshots/AppSS-Icon.png" alt="App Icon" style="float:left;width:34%" />
-    <img src="/Screenshots/AppSS-Splash.png" alt="Loading Screen" style="float:left;width:34%" />
-    <img src="/Screenshots/AppSS-QuotePage.png" alt="Quote Page" style="float:left;width:34%" />
-    <img src="/Screenshots/AppSS-ListPage.png" alt="List Page" style="float:left;width:34%" />
+    <img src="/Screenshots/AppSS-Icon.png" alt="App Icon" style="float:left;width:24%" />
+    <img src="/Screenshots/AppSS-Splash.png" alt="Loading Screen" style="float:left;width:24%" />
+    <img src="/Screenshots/AppSS-QuotePage.png" alt="Quote Page" style="float:left;width:24%" />
+    <img src="/Screenshots/AppSS-ListPage.png" alt="List Page" style="float:left;width:24%" />
 </p>
 
 ## Disclaimer
@@ -20,3 +20,7 @@ The current project is developed using the following environment:
 - Swift 5
 - Storyboard + UIKit + Core Data
 - JSON
+
+## Special Thanks
+Quick Logo and Icon - ![Marcos Visolli](https://mvisolli.com.br/)
+Quotes - ![Luke Peavey](quotable.io)
