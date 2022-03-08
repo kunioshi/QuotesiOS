@@ -91,9 +91,9 @@ class QuoteViewController: UIViewController {
     /// Verify if the `currentQuote` is already saved. Changes the Save Button image to correspond to it.
     private func checkCurrentQuote() {
         if QuoteController.isQuoteSaved(id: currentQuote!._id) {
-            btnSave.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            btnSave.setBackgroundImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
-            btnSave.setImage(UIImage(systemName: "star"), for: .normal)
+            btnSave.setBackgroundImage(UIImage(systemName: "star"), for: .normal)
         }
     }
     
