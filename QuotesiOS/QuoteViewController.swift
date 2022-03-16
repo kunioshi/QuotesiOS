@@ -56,8 +56,8 @@ class QuoteViewController: UIViewController {
     
     @IBAction func saveQuote(_ sender: UIButton) {
         if let curQuote = currentQuote {
-            if QuoteController.isQuoteSaved(id: curQuote._id) {
-                if QuoteController.deleteQuote(id: curQuote._id) {
+            if QuoteModelView.isQuoteSaved(id: curQuote._id) {
+                if QuoteModelView.deleteQuote(id: curQuote._id) {
                     showAlert(title: "Removed", msg: "\(curQuote.author)'s quote was removed from your list. 😢")
                     
                     checkCurrentQuote()
@@ -68,12 +68,12 @@ class QuoteViewController: UIViewController {
                 }
             }
             
-            let newQuote = QuoteController.createQuote(
+            let newQuote = QuoteModelView.createQuote(
                 id: curQuote._id,
                 content: curQuote.content,
                 author: curQuote.author
             )
-            if QuoteController.saveQuote(newQuote) {
+            if QuoteModelView.saveQuote(newQuote) {
                 showAlert(title: "Saved", msg: "\(curQuote.author)'s quote was added to your favorite/saved list.")
                 
                 checkCurrentQuote()
@@ -89,7 +89,7 @@ class QuoteViewController: UIViewController {
     
     /// Verify if the `currentQuote` is already saved. Changes the Save Button image to correspond to it.
     private func checkCurrentQuote() {
-        if let curQuote = currentQuote, QuoteController.isQuoteSaved(id: curQuote._id) {
+        if let curQuote = currentQuote, QuoteModelView.isQuoteSaved(id: curQuote._id) {
             btnSave.setBackgroundImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
             btnSave.setBackgroundImage(UIImage(systemName: "star"), for: .normal)

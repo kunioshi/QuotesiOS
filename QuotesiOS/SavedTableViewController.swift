@@ -17,7 +17,7 @@ class SavedTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
         
         // Force the DB load
-        QuoteController.getQuotes()
+        QuoteModelView.getQuotes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,13 +26,13 @@ class SavedTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return QuoteController.quoteList.count
+        return QuoteModelView.quoteList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let quoteCell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteCell
 
-        let quote = QuoteController.quoteList[indexPath.row]
+        let quote = QuoteModelView.quoteList[indexPath.row]
         quoteCell.lbQuote.text = "“"+quote.content!+"”"
         quoteCell.lbAuthor.text = quote.author
         
@@ -55,8 +55,8 @@ class SavedTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let delQuote = QuoteController.quoteList[indexPath.row]
-            if QuoteController.deleteQuote(id: delQuote.id!) {
+            let delQuote = QuoteModelView.quoteList[indexPath.row]
+            if QuoteModelView.deleteQuote(id: delQuote.id!) {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }

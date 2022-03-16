@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,7 @@
 		FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */; };
 		FD68C7A827D64CB40018CD61 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */; };
 		FD68C7B227D656A00018CD61 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B127D656A00018CD61 /* QuoteCell.swift */; };
-		FD68C7B527D672A40018CD61 /* QuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B427D672A40018CD61 /* QuoteController.swift */; };
+		FD68C7B527D672A40018CD61 /* QuoteModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B427D672A40018CD61 /* QuoteModelView.swift */; };
 		FD6B33B627D6F46D00606603 /* AppSS-Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B327D6F46D00606603 /* AppSS-Splash.png */; };
 		FD6B33B727D6F46D00606603 /* AppSS-ListPage.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */; };
 		FDE2559927D71042005538D7 /* AppSS-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2559727D71041005538D7 /* AppSS-Icon.png */; };
@@ -39,7 +39,7 @@
 		FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
 		FD68C7B127D656A00018CD61 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
-		FD68C7B427D672A40018CD61 /* QuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteController.swift; sourceTree = "<group>"; };
+		FD68C7B427D672A40018CD61 /* QuoteModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModelView.swift; sourceTree = "<group>"; };
 		FD6B33B327D6F46D00606603 /* AppSS-Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Splash.png"; sourceTree = "<group>"; };
 		FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-ListPage.png"; sourceTree = "<group>"; };
 		FDE2559727D71041005538D7 /* AppSS-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Icon.png"; sourceTree = "<group>"; };
@@ -64,7 +64,6 @@
 				9D8A588C2E1ACC90184EA9A9 /* Pods-QuotesiOS.debug.xcconfig */,
 				90FE8A46A964DA973A6FFA52 /* Pods-QuotesiOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -101,7 +100,7 @@
 				FD68C78327D634A60018CD61 /* AppDelegate.swift */,
 				FD68C78527D634A60018CD61 /* SceneDelegate.swift */,
 				FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */,
-				FD68C7B427D672A40018CD61 /* QuoteController.swift */,
+				FD68C7B427D672A40018CD61 /* QuoteModelView.swift */,
 				FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */,
 				FD68C7B127D656A00018CD61 /* QuoteCell.swift */,
 				FD68C78927D634A60018CD61 /* Main.storyboard */,
@@ -242,7 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD68C7B527D672A40018CD61 /* QuoteController.swift in Sources */,
+				FD68C7B527D672A40018CD61 /* QuoteModelView.swift in Sources */,
 				FD68C7B227D656A00018CD61 /* QuoteCell.swift in Sources */,
 				FD68C78427D634A60018CD61 /* AppDelegate.swift in Sources */,
 				FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */,
