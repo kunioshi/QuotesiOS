@@ -98,23 +98,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEt-pQ-YR1" userLabel="TransitionView">
-                                <rect key="frame" x="10" y="395.5" width="394" height="137.5"/>
+                                <rect key="frame" x="10" y="466" width="394" height="67"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSE-pN-dfO" userLabel="MaskView">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="137.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="67"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry.&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCG-0V-Xcw" userLabel="QuoteLb">
-                                                <rect key="frame" x="10" y="10" width="374" height="86"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCG-0V-Xcw" userLabel="QuoteLb">
+                                                <rect key="frame" x="10" y="10" width="374" height="37"/>
                                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiO-8A-RbO" userLabel="AuthorView">
-                                                <rect key="frame" x="0.0" y="106" width="394" height="31.5"/>
+                                                <rect key="frame" x="0.0" y="57" width="394" height="10"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lipsum.com" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kme-5A-gPj" userLabel="AuthorLb">
-                                                        <rect key="frame" x="5" y="5" width="384" height="21.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kme-5A-gPj" userLabel="AuthorLb">
+                                                        <rect key="frame" x="5" y="5" width="384" height="0.0"/>
                                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <nil key="textColor"/>
@@ -131,6 +131,9 @@
                                                     <constraint firstItem="Kme-5A-gPj" firstAttribute="leading" secondItem="jiO-8A-RbO" secondAttribute="leading" constant="5" id="uit-hV-Wqu"/>
                                                 </constraints>
                                             </view>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DAn-5Q-Coy">
+                                                <rect key="frame" x="178" y="10" width="37" height="37"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                                         <constraints>
@@ -140,8 +143,12 @@
                                             <constraint firstAttribute="bottom" secondItem="jiO-8A-RbO" secondAttribute="bottom" id="NAo-O5-Lp5"/>
                                             <constraint firstItem="gCG-0V-Xcw" firstAttribute="top" secondItem="rSE-pN-dfO" secondAttribute="top" constant="10" id="Suf-TA-lEf"/>
                                             <constraint firstItem="jiO-8A-RbO" firstAttribute="top" secondItem="gCG-0V-Xcw" secondAttribute="bottom" constant="10" id="b6R-Su-TXy"/>
+                                            <constraint firstAttribute="trailing" secondItem="DAn-5Q-Coy" secondAttribute="trailing" constant="179" id="bjf-WE-tOp"/>
+                                            <constraint firstItem="jiO-8A-RbO" firstAttribute="top" secondItem="DAn-5Q-Coy" secondAttribute="bottom" constant="10" id="lJM-v3-j66"/>
                                             <constraint firstItem="jiO-8A-RbO" firstAttribute="leading" secondItem="rSE-pN-dfO" secondAttribute="leading" id="m1j-bR-nym"/>
+                                            <constraint firstItem="DAn-5Q-Coy" firstAttribute="leading" secondItem="rSE-pN-dfO" secondAttribute="leading" constant="178" id="mzJ-kD-eba"/>
                                             <constraint firstAttribute="trailing" secondItem="jiO-8A-RbO" secondAttribute="trailing" id="pNF-jo-lAM"/>
+                                            <constraint firstItem="DAn-5Q-Coy" firstAttribute="top" secondItem="rSE-pN-dfO" secondAttribute="top" constant="10" id="vYA-uF-UhB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -167,6 +174,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Quote" image="quote.bubble" catalog="system" id="ONc-71-H69"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="DAn-5Q-Coy" id="vkL-nm-Cg3"/>
                         <outlet property="btnSave" destination="00z-tw-5zG" id="x6x-dV-htw"/>
                         <outlet property="lbAuthor" destination="Kme-5A-gPj" id="xJ7-av-Bsl"/>
                         <outlet property="lbQuote" destination="gCG-0V-Xcw" id="ZSj-ly-sNq"/>

@@ -15,6 +15,9 @@ class SavedTableViewController: UITableViewController {
         // Config the rows to have dynamic height
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
+        
+        // Force the DB load
+        QuoteController.getQuotes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
