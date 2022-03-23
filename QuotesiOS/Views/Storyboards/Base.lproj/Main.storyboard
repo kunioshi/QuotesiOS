@@ -53,7 +53,7 @@
         <!--Quote-->
         <scene sceneID="Mjb-fn-RYe">
             <objects>
-                <viewController id="aag-Ey-9e3" customClass="QuoteViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aag-Ey-9e3" customClass="SingleQuoteViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ijz-uN-iim">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,14 +189,14 @@
         <!--Saved-->
         <scene sceneID="hP3-5l-xyj">
             <objects>
-                <tableViewController id="PbY-fm-bGo" customClass="SavedTableViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="PbY-fm-bGo" customClass="QuoteListTableViewController" customModule="QuotesiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnn-Lu-VvW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="91" id="izo-66-5bk" customClass="QuoteCell" customModule="QuotesiOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="91" id="izo-66-5bk" customClass="QuoteTableViewCell" customModule="QuotesiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="izo-66-5bk" id="UhY-tz-7Qh">

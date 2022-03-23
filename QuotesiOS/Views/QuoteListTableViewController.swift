@@ -8,16 +8,15 @@
 import UIKit
 import CoreData
 
-class SavedTableViewController: UITableViewController {
+class QuoteListTableViewController: UITableViewController {
+    private let quoteListVM = QuoteListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Config the rows to have dynamic height
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
-        
-        // Force the DB load
-        QuoteModelView.getQuotes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,15 +25,15 @@ class SavedTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return QuoteModelView.quoteList.count
+        return quoteListVM.quoteListLength()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let quoteCell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteCell
+        let quoteCell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteTableViewCell
 
-        let quote = QuoteModelView.quoteList[indexPath.row]
-        quoteCell.lbQuote.text = "“"+quote.content!+"”"
-        quoteCell.lbAuthor.text = quote.author
+        let (content, author) = quoteListVM.getContentFromIndex(indexPath.row)
+        quoteCell.lbQuote.text = "“"+content!+"”"
+        quoteCell.lbAuthor.text = author!
         
         // Change background color
         if indexPath.row % 2 == 1 {
@@ -55,10 +54,8 @@ class SavedTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let delQuote = QuoteModelView.quoteList[indexPath.row]
-            if QuoteModelView.deleteQuote(id: delQuote.id!) {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
+            quoteListVM.removeQuoteFromIndex(indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
 //        else if editingStyle == .insert {
 //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

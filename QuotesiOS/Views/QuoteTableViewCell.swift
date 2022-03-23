@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuoteCell: UITableViewCell {
+class QuoteTableViewCell: UITableViewCell {
     @IBOutlet weak var lbQuote: UILabel!
     @IBOutlet weak var lbAuthor: UILabel!
     

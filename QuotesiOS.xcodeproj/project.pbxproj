@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD159EC127E907EE0018CEA8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD159EC027E907EE0018CEA8 /* APIService.swift */; };
+		FD159EC327E91ADD0018CEA8 /* QuoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD159EC227E91ADD0018CEA8 /* QuoteModel.swift */; };
 		FD68C78427D634A60018CD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C78327D634A60018CD61 /* AppDelegate.swift */; };
 		FD68C78627D634A60018CD61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C78527D634A60018CD61 /* SceneDelegate.swift */; };
 		FD68C78B27D634A60018CD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD68C78927D634A60018CD61 /* Main.storyboard */; };
 		FD68C78E27D634A60018CD61 /* QuotesiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD68C78C27D634A60018CD61 /* QuotesiOS.xcdatamodeld */; };
 		FD68C79027D634B10018CD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD68C78F27D634B10018CD61 /* Assets.xcassets */; };
 		FD68C79327D634B10018CD61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD68C79127D634B10018CD61 /* LaunchScreen.storyboard */; };
-		FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */; };
-		FD68C7A827D64CB40018CD61 /* SavedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */; };
-		FD68C7B227D656A00018CD61 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B127D656A00018CD61 /* QuoteCell.swift */; };
-		FD68C7B527D672A40018CD61 /* QuoteModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B427D672A40018CD61 /* QuoteModelView.swift */; };
+		FD68C7A127D64BD80018CD61 /* SingleQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A027D64BD80018CD61 /* SingleQuoteViewController.swift */; };
+		FD68C7A827D64CB40018CD61 /* QuoteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7A727D64CB40018CD61 /* QuoteListTableViewController.swift */; };
+		FD68C7B227D656A00018CD61 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B127D656A00018CD61 /* QuoteTableViewCell.swift */; };
+		FD68C7B527D672A40018CD61 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B427D672A40018CD61 /* QuoteViewModel.swift */; };
 		FD6B33B627D6F46D00606603 /* AppSS-Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B327D6F46D00606603 /* AppSS-Splash.png */; };
 		FD6B33B727D6F46D00606603 /* AppSS-ListPage.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */; };
 		FDB7717427E4F6B400D106F3 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; };
 		FDB7717527E4F6B400D106F3 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDE2559927D71042005538D7 /* AppSS-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2559727D71041005538D7 /* AppSS-Icon.png */; };
 		FDE2559F27D71118005538D7 /* AppSS-QuotePage.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2559E27D71118005538D7 /* AppSS-QuotePage.png */; };
+		FDED00DA27EA4B6B004E88F3 /* QuoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDED00D927EA4B6B004E88F3 /* QuoteListViewModel.swift */; };
+		FDED00DC27EA530D004E88F3 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDED00DB27EA530D004E88F3 /* DatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FD159EC027E907EE0018CEA8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		FD159EC227E91ADD0018CEA8 /* QuoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModel.swift; sourceTree = "<group>"; };
 		FD68C78027D634A60018CD61 /* QuotesiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD68C78327D634A60018CD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD68C78527D634A60018CD61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,16 +54,18 @@
 		FD68C78F27D634B10018CD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD68C79227D634B10018CD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD68C79427D634B10018CD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
-		FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTableViewController.swift; sourceTree = "<group>"; };
-		FD68C7B127D656A00018CD61 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
-		FD68C7B427D672A40018CD61 /* QuoteModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteModelView.swift; sourceTree = "<group>"; };
+		FD68C7A027D64BD80018CD61 /* SingleQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuoteViewController.swift; sourceTree = "<group>"; };
+		FD68C7A727D64CB40018CD61 /* QuoteListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListTableViewController.swift; sourceTree = "<group>"; };
+		FD68C7B127D656A00018CD61 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
+		FD68C7B427D672A40018CD61 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		FD6B33B327D6F46D00606603 /* AppSS-Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Splash.png"; sourceTree = "<group>"; };
 		FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-ListPage.png"; sourceTree = "<group>"; };
 		FDB7716A27E4ECF600D106F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		FDE2559727D71041005538D7 /* AppSS-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Icon.png"; sourceTree = "<group>"; };
 		FDE2559E27D71118005538D7 /* AppSS-QuotePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-QuotePage.png"; sourceTree = "<group>"; };
+		FDED00D927EA4B6B004E88F3 /* QuoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListViewModel.swift; sourceTree = "<group>"; };
+		FDED00DB27EA530D004E88F3 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,14 +101,11 @@
 		FD68C78227D634A60018CD61 /* QuotesiOS */ = {
 			isa = PBXGroup;
 			children = (
-				FD68C78327D634A60018CD61 /* AppDelegate.swift */,
-				FD68C78527D634A60018CD61 /* SceneDelegate.swift */,
-				FD68C7A027D64BD80018CD61 /* QuoteViewController.swift */,
-				FD68C7B427D672A40018CD61 /* QuoteModelView.swift */,
-				FD68C7A727D64CB40018CD61 /* SavedTableViewController.swift */,
-				FD68C7B127D656A00018CD61 /* QuoteCell.swift */,
-				FD68C78927D634A60018CD61 /* Main.storyboard */,
-				FD68C79127D634B10018CD61 /* LaunchScreen.storyboard */,
+				FDCAB33027EBD3EF00131549 /* Delegates */,
+				FDED00D627EA4899004E88F3 /* Models */,
+				FDED00D727EA48C0004E88F3 /* ViewModels */,
+				FDED00D527EA485F004E88F3 /* Views */,
+				FDED00D827EA4961004E88F3 /* Services */,
 				FD68C78F27D634B10018CD61 /* Assets.xcassets */,
 				FD68C79427D634B10018CD61 /* Info.plist */,
 				FD68C78C27D634A60018CD61 /* QuotesiOS.xcdatamodeld */,
@@ -126,6 +131,61 @@
 				FDB7716A27E4ECF600D106F3 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDCAB33027EBD3EF00131549 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FD68C78327D634A60018CD61 /* AppDelegate.swift */,
+				FD68C78527D634A60018CD61 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		FDCAB33127EBD40300131549 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FD68C78927D634A60018CD61 /* Main.storyboard */,
+				FD68C79127D634B10018CD61 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FDED00D527EA485F004E88F3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDCAB33127EBD40300131549 /* Storyboards */,
+				FD68C7A027D64BD80018CD61 /* SingleQuoteViewController.swift */,
+				FD68C7A727D64CB40018CD61 /* QuoteListTableViewController.swift */,
+				FD68C7B127D656A00018CD61 /* QuoteTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FDED00D627EA4899004E88F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD159EC227E91ADD0018CEA8 /* QuoteModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FDED00D727EA48C0004E88F3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FD68C7B427D672A40018CD61 /* QuoteViewModel.swift */,
+				FDED00D927EA4B6B004E88F3 /* QuoteListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FDED00D827EA4961004E88F3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FD159EC027E907EE0018CEA8 /* APIService.swift */,
+				FDED00DB27EA530D004E88F3 /* DatabaseService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,12 +263,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD68C7B527D672A40018CD61 /* QuoteModelView.swift in Sources */,
-				FD68C7B227D656A00018CD61 /* QuoteCell.swift in Sources */,
+				FD68C7B527D672A40018CD61 /* QuoteViewModel.swift in Sources */,
+				FD68C7B227D656A00018CD61 /* QuoteTableViewCell.swift in Sources */,
 				FD68C78427D634A60018CD61 /* AppDelegate.swift in Sources */,
-				FD68C7A127D64BD80018CD61 /* QuoteViewController.swift in Sources */,
+				FDED00DA27EA4B6B004E88F3 /* QuoteListViewModel.swift in Sources */,
+				FD68C7A127D64BD80018CD61 /* SingleQuoteViewController.swift in Sources */,
+				FD159EC127E907EE0018CEA8 /* APIService.swift in Sources */,
 				FD68C78E27D634A60018CD61 /* QuotesiOS.xcdatamodeld in Sources */,
-				FD68C7A827D64CB40018CD61 /* SavedTableViewController.swift in Sources */,
+				FD159EC327E91ADD0018CEA8 /* QuoteModel.swift in Sources */,
+				FDED00DC27EA530D004E88F3 /* DatabaseService.swift in Sources */,
+				FD68C7A827D64CB40018CD61 /* QuoteListTableViewController.swift in Sources */,
 				FD68C78627D634A60018CD61 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
