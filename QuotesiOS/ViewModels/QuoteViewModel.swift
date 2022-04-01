@@ -64,7 +64,18 @@ class QuoteViewModel {
     }
     
     public func isCurrentQuoteSaved() -> Bool {
-        let quoteListVM = QuoteListViewModel()
-        return (currentQuote != nil && quoteListVM.isQuoteSaved(quoteId: currentQuote!._id!))
+        if let quote = try? currentQuote.value(), let id = quote._id {
+            let db = DatabaseService()
+            
+            do {
+                let count = try db.countEntity(ifType: QuoteItem.self, withID: id)
+                
+                return count != 0
+            } catch {
+                print(error)
+            }
+        }
+        
+        return false
     }
 }
