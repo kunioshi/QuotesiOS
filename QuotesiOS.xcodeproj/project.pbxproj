@@ -21,6 +21,14 @@
 		FD68C7B527D672A40018CD61 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B427D672A40018CD61 /* QuoteViewModel.swift */; };
 		FD6B33B627D6F46D00606603 /* AppSS-Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B327D6F46D00606603 /* AppSS-Splash.png */; };
 		FD6B33B727D6F46D00606603 /* AppSS-ListPage.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */; };
+		FD84AAAA27F64FF8003B16C0 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */; };
+		FD84AAAB27F64FF8003B16C0 /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD84AAAC27F64FF8003B16C0 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */; };
+		FD84AAAD27F64FF8003B16C0 /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD84AAAE27F64FF8003B16C0 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */; };
+		FD84AAAF27F64FF8003B16C0 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD84AAC327F773C8003B16C0 /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */; };
+		FD84AAC427F773C8003B16C0 /* RxDataSources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDB7717427E4F6B400D106F3 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; };
 		FDB7717527E4F6B400D106F3 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDE2559927D71042005538D7 /* AppSS-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2559727D71041005538D7 /* AppSS-Icon.png */; };
@@ -36,7 +44,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FD84AAAF27F64FF8003B16C0 /* RxSwift.xcframework in Embed Frameworks */,
+				FD84AAAD27F64FF8003B16C0 /* RxRelay.xcframework in Embed Frameworks */,
 				FDB7717527E4F6B400D106F3 /* Alamofire.xcframework in Embed Frameworks */,
+				FD84AAC427F773C8003B16C0 /* RxDataSources.xcframework in Embed Frameworks */,
+				FD84AAAB27F64FF8003B16C0 /* RxCocoa.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +72,12 @@
 		FD68C7B427D672A40018CD61 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		FD6B33B327D6F46D00606603 /* AppSS-Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Splash.png"; sourceTree = "<group>"; };
 		FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-ListPage.png"; sourceTree = "<group>"; };
-		FDB7716A27E4ECF600D106F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
+		FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		FD6E23D227ECD52F00F3BF77 /* RxTest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxTest.xcframework; path = Carthage/Build/RxTest.xcframework; sourceTree = "<group>"; };
+		FD6E23D327ECD52F00F3BF77 /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = Carthage/Build/RxBlocking.xcframework; sourceTree = "<group>"; };
+		FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
+		FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxDataSources.xcframework; path = Carthage/Build/RxDataSources.xcframework; sourceTree = "<group>"; };
 		FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		FDE2559727D71041005538D7 /* AppSS-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Icon.png"; sourceTree = "<group>"; };
 		FDE2559E27D71118005538D7 /* AppSS-QuotePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-QuotePage.png"; sourceTree = "<group>"; };
@@ -73,7 +90,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD84AAAE27F64FF8003B16C0 /* RxSwift.xcframework in Frameworks */,
+				FD84AAAC27F64FF8003B16C0 /* RxRelay.xcframework in Frameworks */,
 				FDB7717427E4F6B400D106F3 /* Alamofire.xcframework in Frameworks */,
+				FD84AAC327F773C8003B16C0 /* RxDataSources.xcframework in Frameworks */,
+				FD84AAAA27F64FF8003B16C0 /* RxCocoa.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,8 +148,13 @@
 		FDB7716927E4ECF600D106F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */,
+				FD6E23D327ECD52F00F3BF77 /* RxBlocking.xcframework */,
+				FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */,
+				FD6E23D227ECD52F00F3BF77 /* RxTest.xcframework */,
+				FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */,
+				FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */,
 				FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */,
-				FDB7716A27E4ECF600D106F3 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -420,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -442,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
