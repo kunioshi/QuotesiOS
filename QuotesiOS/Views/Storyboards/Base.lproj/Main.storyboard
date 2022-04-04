@@ -70,9 +70,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="tintColor" red="0.96470588239999999" green="0.76470588240000004" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" backgroundImage="arrow.clockwise" catalog="system"/>
-                                        <connections>
-                                            <action selector="getNewQuote:" destination="aag-Ey-9e3" eventType="touchUpInside" id="yoN-Ll-m0M"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00z-tw-5zG">
                                         <rect key="frame" x="161" y="-0.5" width="33" height="30"/>
@@ -83,9 +80,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="tintColor" red="0.96470588239999999" green="0.76470588240000004" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" backgroundImage="star" catalog="system"/>
-                                        <connections>
-                                            <action selector="saveQuote:" destination="aag-Ey-9e3" eventType="touchUpInside" id="SLN-KR-k8r"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -175,6 +169,7 @@
                     <tabBarItem key="tabBarItem" title="Quote" image="quote.bubble" catalog="system" id="ONc-71-H69"/>
                     <connections>
                         <outlet property="activityIndicator" destination="DAn-5Q-Coy" id="vkL-nm-Cg3"/>
+                        <outlet property="btnRefresh" destination="Vzo-zL-OdM" id="Fwu-6F-YgY"/>
                         <outlet property="btnSave" destination="00z-tw-5zG" id="x6x-dV-htw"/>
                         <outlet property="lbAuthor" destination="Kme-5A-gPj" id="xJ7-av-Bsl"/>
                         <outlet property="lbQuote" destination="gCG-0V-Xcw" id="ZSj-ly-sNq"/>
@@ -196,7 +191,7 @@
                         <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="91" id="izo-66-5bk" customClass="QuoteTableViewCell" customModule="QuotesiOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="quoteCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="quoteCell" rowHeight="91" id="izo-66-5bk" customClass="QuoteTableViewCell" customModule="QuotesiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="izo-66-5bk" id="UhY-tz-7Qh">

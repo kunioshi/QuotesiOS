@@ -12,7 +12,7 @@ enum APIError: Error {
     case responseInvalidValue
 }
 
-class APIQuoteModel: QuoteModel {
+struct APIQuoteModel: QuoteModel {
     var _id: String?
     var content: String?
     var author: String?
@@ -49,11 +49,7 @@ class APIService {
     }
     
     public func createQuoteAPI(fromQuoteItem quote: QuoteItem) -> APIQuoteModel {
-        let model = APIQuoteModel()
-        
-        model._id = quote.id
-        model.content = quote.content
-        model.author = quote.author
+        let model = APIQuoteModel(_id: quote.id, content: quote.content, author: quote.author)
         
         return model
     }

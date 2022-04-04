@@ -7,22 +7,49 @@
 
 import UIKit
 import Alamofire
+import RxSwift
+import RxCocoa
 
 class SingleQuoteViewController: UIViewController {
     @IBOutlet weak var lbQuote: UILabel!
     @IBOutlet weak var lbAuthor: UILabel!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var btnRefresh: UIButton!
     @IBOutlet weak var quoteView: UIView!
     @IBOutlet weak var transitionQuoteView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var quoteVM: QuoteViewModel!
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Initialize ViewModel
         quoteVM = QuoteViewModel(newQuoteCallback: newQuoteDidSet)
+        
+        // Rx
+        quoteVM.currentQuote.asObservable()
+            .subscribe(onNext: { [weak self] element in
+                self?.SwitchSpinner(toHidden: true)
+                self?.updateBtnSave()
+                UIView.transition(with: (self?.transitionQuoteView)!,
+                              duration: 0.25,
+                               options: .transitionCurlDown,
+                            animations: {
+                                self?.lbQuote.text = element.content
+                                self?.lbAuthor.text = element.author
+                         }, completion: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        btnSave.rx.tap.bind { [weak self] in
+            self?.tappedBtnSave()
+        }.disposed(by: disposeBag)
+        
+        btnRefresh.rx.tap.bind { [weak self] in
+            self?.quoteVM.getNewQuote()
+        }.disposed(by: disposeBag)
         
         // Format UI elements
         quoteView.layer.cornerRadius = 8
@@ -38,10 +65,6 @@ class SingleQuoteViewController: UIViewController {
         updateBtnSave()
     }
     
-    @IBAction func getNewQuote(_ sender: Any) {
-        quoteVM.getNewQuote()
-    }
-    
     private func newQuoteDidSet() {
         let (content, author) = quoteVM.getCurrentContent()
         
@@ -55,8 +78,13 @@ class SingleQuoteViewController: UIViewController {
         updateBtnSave()
     }
     
-    @IBAction func saveQuote(_ sender: UIButton) {
-        quoteVM.saveCurrentQuote()
+    private func tappedBtnSave() {
+        if quoteVM.isCurrentQuoteSaved() {
+            quoteVM.removeCurrentQuote()
+        } else {
+            quoteVM.saveCurrentQuote()
+        }
+        
         updateBtnSave()
     }
     
