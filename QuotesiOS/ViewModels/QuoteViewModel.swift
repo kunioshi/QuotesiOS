@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class QuoteViewModel {
-    public var currentQuote: BehaviorSubject<APIQuoteModel> = BehaviorSubject(value: APIQuoteModel())
+    public var currentQuote: BehaviorRelay<APIQuoteModel> = BehaviorRelay(value: APIQuoteModel())
     private var quoteDidSet: () -> Void
     
     init(newQuoteCallback: @escaping () -> Void) {
@@ -19,8 +19,9 @@ class QuoteViewModel {
     
     @discardableResult
     public func saveCurrentQuote() -> Bool {
-        if let curQuote = try? currentQuote.value(), curQuote._id != nil {
-            let newQuote = APIService().createQuoteItem(fromQuoteAPI: curQuote)
+        let quote = currentQuote.value
+        if quote._id != nil {
+            let newQuote = APIService().createQuoteItem(fromQuoteAPI: quote)
             
             do {
                 let db = DatabaseService()
@@ -46,7 +47,7 @@ class QuoteViewModel {
             // Customize the content for the app
             apiQuote.content = addQuoteMark(quote: apiQuote.content)
             
-            currentQuote.onNext(apiQuote)
+            currentQuote.accept(apiQuote)
         }
     }
     
@@ -60,7 +61,8 @@ class QuoteViewModel {
     }
     
     public func getCurrentContent() -> (String, String) {
-        if let quote = try? currentQuote.value(), let content = quote.content, let author = quote.author {
+        let quote = currentQuote.value
+        if let content = quote.content, let author = quote.author {
             return (content, author)
         }
         
@@ -69,7 +71,8 @@ class QuoteViewModel {
     
     @discardableResult
     public func removeCurrentQuote() -> Bool {
-        if let quote = try? currentQuote.value(), let id = quote._id {
+        let quote = currentQuote.value
+        if let id = quote._id {
             let quoteListVM = QuoteListViewModel()
             return quoteListVM.removeQuoteFromList(quoteId: id)
         }
@@ -78,7 +81,8 @@ class QuoteViewModel {
     }
     
     public func isCurrentQuoteSaved() -> Bool {
-        if let quote = try? currentQuote.value(), let id = quote._id {
+        let quote = currentQuote.value
+        if let id = quote._id {
             let db = DatabaseService()
             
             do {
