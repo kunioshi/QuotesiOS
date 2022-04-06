@@ -10,11 +10,19 @@ import RxSwift
 import RxCocoa
 
 class QuoteListViewModel {
-    public let quoteList = BehaviorRelay(value: [QuoteItem]())
+    public let quoteList: BehaviorRelay<[QuoteItem]> = BehaviorRelay(value: [QuoteItem]())
+    private let disposeBag = DisposeBag()
     
     public init() {
         do {
             try refreshList()
+            
+            // Subscrite to database save event
+            let db = DatabaseService()
+            let saveEvent = db.getContextDidSaveEvent()
+            saveEvent.bind(onNext: { [weak self] _ in
+                try? self?.refreshList()
+            }).disposed(by: disposeBag)
         } catch let error as NSError {
             fatalError("Unable to load the app's database. Please, try again.\nError: \(error.localizedDescription)")
         }

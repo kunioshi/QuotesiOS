@@ -80,19 +80,8 @@ class QuoteListTableViewController: UITableViewController {
         tableView.rx.itemDeleted
             .bind(onNext: { [weak self] indexPath in
                 self?.quoteListVM.removeQuoteFromIndex(indexPath.row)
-                try! self?.quoteListVM.refreshList()
                 self?.refreshSections()
             }).disposed(by: disposeBag)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        do {
-            try quoteListVM.refreshList()
-        } catch {
-            let alert = UIAlertController(title: "Error", message: "Could not retrive data from local database.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
     }
     
     private func refreshSections() {
