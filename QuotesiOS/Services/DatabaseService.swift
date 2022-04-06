@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import RxSwift
 
 enum DatabaseError: Error {
     case databaseFetchError(String)
@@ -18,6 +19,7 @@ class DatabaseService {
     private static let context: NSManagedObjectContext =
         (UIApplication.shared.delegate as! AppDelegate)
         .persistentContainer.viewContext
+    private static let contextDidSave: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
     public static func getContext() -> NSManagedObjectContext {
         return DatabaseService.context
@@ -77,8 +79,13 @@ class DatabaseService {
     private func saveContext() throws {
         do {
             try DatabaseService.context.save()
+            DatabaseService.contextDidSave.onNext(true)
         } catch {
             throw DatabaseError.databaseSaveContextError
         }
+    }
+    
+    public func getContextDidSaveEvent() -> BehaviorSubject<Bool> {
+        return DatabaseService.contextDidSave
     }
 }
