@@ -47,6 +47,8 @@ class QuoteListTableViewController: UITableViewController {
             // Change background color
             if idxPath.row % 2 == 1 {
                 cell.backgroundColor = .systemGray4
+            } else {
+                cell.backgroundColor = .systemGray3
             }
             
             return cell
@@ -80,7 +82,6 @@ class QuoteListTableViewController: UITableViewController {
         tableView.rx.itemDeleted
             .bind(onNext: { [weak self] indexPath in
                 self?.quoteListVM.removeQuoteFromIndex(indexPath.row)
-                self?.refreshSections()
             }).disposed(by: disposeBag)
     }
     
