@@ -68,26 +68,17 @@ class QuoteListTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
         
-//        quoteListVM.quoteList.asObservable()
-//            .bind(to: tableView.rx.items(cellIdentifier: "quoteCell", cellType: UITableViewCell.self)) { (row, element, cell) in
-//                let quoteCell = cell as! QuoteTableViewCell
-//                quoteCell.lbQuote.text = element.content!
-//                quoteCell.lbAuthor.text = element.author!
-//
-//                // Change background color
-//                if row % 2 == 1 {
-//                    quoteCell.backgroundColor = .systemGray4
-//                }
-//            }.disposed(by: disposeBag)
-        
-        refreshSections()
+        quoteListVM.quoteList.asObservable()
+            .bind(onNext: { [weak self] _ in
+                self?.refreshSections()
+            }).disposed(by: disposeBag)
         
         sections
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         tableView.rx.itemDeleted
-            .subscribe(onNext: { [weak self] indexPath in
+            .bind(onNext: { [weak self] indexPath in
                 self?.quoteListVM.removeQuoteFromIndex(indexPath.row)
                 try! self?.quoteListVM.refreshList()
                 self?.refreshSections()
@@ -97,7 +88,6 @@ class QuoteListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         do {
             try quoteListVM.refreshList()
-            refreshSections()
         } catch {
             let alert = UIAlertController(title: "Error", message: "Could not retrive data from local database.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
