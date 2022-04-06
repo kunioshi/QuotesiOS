@@ -21,8 +21,18 @@
 		FD68C7B527D672A40018CD61 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD68C7B427D672A40018CD61 /* QuoteViewModel.swift */; };
 		FD6B33B627D6F46D00606603 /* AppSS-Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B327D6F46D00606603 /* AppSS-Splash.png */; };
 		FD6B33B727D6F46D00606603 /* AppSS-ListPage.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */; };
-		FDB7717427E4F6B400D106F3 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; };
-		FDB7717527E4F6B400D106F3 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD887A8527F79EDA004342AA /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; };
+		FD887A8627F79EDA004342AA /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD887A8727F79EDA004342AA /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */; };
+		FD887A8827F79EDA004342AA /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD887A8927F79EDA004342AA /* RxDataSources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */; };
+		FD887A8A27F79EDA004342AA /* RxDataSources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD887A8B27F79EDA004342AA /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */; };
+		FD887A8C27F79EDA004342AA /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD887A8D27F79EDA004342AA /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */; };
+		FD887A8E27F79EDA004342AA /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD887A9127F79F19004342AA /* Differentiator.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD887A9027F79F19004342AA /* Differentiator.xcframework */; };
+		FD887A9227F79F19004342AA /* Differentiator.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD887A9027F79F19004342AA /* Differentiator.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDE2559927D71042005538D7 /* AppSS-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2559727D71041005538D7 /* AppSS-Icon.png */; };
 		FDE2559F27D71118005538D7 /* AppSS-QuotePage.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2559E27D71118005538D7 /* AppSS-QuotePage.png */; };
 		FDED00DA27EA4B6B004E88F3 /* QuoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDED00D927EA4B6B004E88F3 /* QuoteListViewModel.swift */; };
@@ -30,13 +40,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FDB7717627E4F6B400D106F3 /* Embed Frameworks */ = {
+		FD887A8F27F79EDA004342AA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FDB7717527E4F6B400D106F3 /* Alamofire.xcframework in Embed Frameworks */,
+				FD887A8E27F79EDA004342AA /* RxSwift.xcframework in Embed Frameworks */,
+				FD887A9227F79F19004342AA /* Differentiator.xcframework in Embed Frameworks */,
+				FD887A8627F79EDA004342AA /* Alamofire.xcframework in Embed Frameworks */,
+				FD887A8C27F79EDA004342AA /* RxRelay.xcframework in Embed Frameworks */,
+				FD887A8827F79EDA004342AA /* RxCocoa.xcframework in Embed Frameworks */,
+				FD887A8A27F79EDA004342AA /* RxDataSources.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +75,13 @@
 		FD68C7B427D672A40018CD61 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		FD6B33B327D6F46D00606603 /* AppSS-Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Splash.png"; sourceTree = "<group>"; };
 		FD6B33B427D6F46D00606603 /* AppSS-ListPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-ListPage.png"; sourceTree = "<group>"; };
-		FDB7716A27E4ECF600D106F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
+		FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		FD6E23D227ECD52F00F3BF77 /* RxTest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxTest.xcframework; path = Carthage/Build/RxTest.xcframework; sourceTree = "<group>"; };
+		FD6E23D327ECD52F00F3BF77 /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = Carthage/Build/RxBlocking.xcframework; sourceTree = "<group>"; };
+		FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
+		FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxDataSources.xcframework; path = Carthage/Build/RxDataSources.xcframework; sourceTree = "<group>"; };
+		FD887A9027F79F19004342AA /* Differentiator.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Differentiator.xcframework; path = Carthage/Build/Differentiator.xcframework; sourceTree = "<group>"; };
 		FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		FDE2559727D71041005538D7 /* AppSS-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-Icon.png"; sourceTree = "<group>"; };
 		FDE2559E27D71118005538D7 /* AppSS-QuotePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppSS-QuotePage.png"; sourceTree = "<group>"; };
@@ -73,7 +94,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB7717427E4F6B400D106F3 /* Alamofire.xcframework in Frameworks */,
+				FD887A8D27F79EDA004342AA /* RxSwift.xcframework in Frameworks */,
+				FD887A9127F79F19004342AA /* Differentiator.xcframework in Frameworks */,
+				FD887A8527F79EDA004342AA /* Alamofire.xcframework in Frameworks */,
+				FD887A8B27F79EDA004342AA /* RxRelay.xcframework in Frameworks */,
+				FD887A8727F79EDA004342AA /* RxCocoa.xcframework in Frameworks */,
+				FD887A8927F79EDA004342AA /* RxDataSources.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,8 +153,14 @@
 		FDB7716927E4ECF600D106F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD887A9027F79F19004342AA /* Differentiator.xcframework */,
+				FD84AAC227F773C8003B16C0 /* RxDataSources.xcframework */,
+				FD6E23D327ECD52F00F3BF77 /* RxBlocking.xcframework */,
+				FD6E23D427ECD52F00F3BF77 /* RxRelay.xcframework */,
+				FD6E23D227ECD52F00F3BF77 /* RxTest.xcframework */,
+				FD6E23C827ECC1E400F3BF77 /* RxSwift.xcframework */,
+				FD6E23CB27ECC7D200F3BF77 /* RxCocoa.xcframework */,
 				FDB7716F27E4F20200D106F3 /* Alamofire.xcframework */,
-				FDB7716A27E4ECF600D106F3 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,7 +230,7 @@
 				FD68C77C27D634A60018CD61 /* Sources */,
 				FD68C77D27D634A60018CD61 /* Frameworks */,
 				FD68C77E27D634A60018CD61 /* Resources */,
-				FDB7717627E4F6B400D106F3 /* Embed Frameworks */,
+				FD887A8F27F79EDA004342AA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -420,7 +452,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A6UF8D555U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -430,10 +464,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Kunioshi.QuotesiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.kunioshi.QuotesiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -442,7 +476,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A6UF8D555U;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -452,10 +488,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Kunioshi.QuotesiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.kunioshi.QuotesiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

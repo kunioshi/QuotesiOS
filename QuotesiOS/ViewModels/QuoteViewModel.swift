@@ -6,34 +6,31 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class QuoteViewModel {
-    private var currentQuote: APIQuoteModel? { didSet { quoteDidSet() } }
+    public var currentQuote: BehaviorRelay<APIQuoteModel> = BehaviorRelay(value: APIQuoteModel())
     private var quoteDidSet: () -> Void
     
     init(newQuoteCallback: @escaping () -> Void) {
         quoteDidSet = newQuoteCallback
     }
     
-    public func saveQuote(_ quote: QuoteItem) -> Bool {
-        do {
-            let quoteListVM = QuoteListViewModel()
-            if try quoteListVM.addToQuoteList(quote: quote) {
-                return true
-            }
-        } catch let error {
-            print(error)
-        }
-        
-        return false
-    }
-    
     @discardableResult
     public func saveCurrentQuote() -> Bool {
-        if let curQuote = currentQuote {
-            let newQuote = APIService().createQuoteItem(fromQuoteAPI: curQuote)
+        let quote = currentQuote.value
+        if quote._id != nil {
+            let newQuote = APIService().createQuoteItem(fromQuoteAPI: quote)
             
-            return saveQuote(newQuote)
+            do {
+                let db = DatabaseService()
+                try db.createOne(item: newQuote)
+                
+                return true
+            } catch let error {
+                print(error)
+            }
         }
         
         return false
@@ -44,27 +41,59 @@ class QuoteViewModel {
         api.fetchAPIQuote(completion: setNewQuote)
     }
     
+    /// Callback from API fetch (`APIService().fetchAPIQuote`)
     public func setNewQuote(_ quote: QuoteModel?) {
-        if let apiQuote = quote as? APIQuoteModel {
-            currentQuote = apiQuote
+        if var apiQuote = quote as? APIQuoteModel {
+            // Customize the content for the app
+            apiQuote.content = addQuoteMark(quote: apiQuote.content)
+            
+            currentQuote.accept(apiQuote)
         }
     }
     
+    /// Adds custom quotation marks to the given String, if not nil.
+    private func addQuoteMark(quote: String?) -> String? {
+        if let text = quote {
+            return "“"+text+"”"
+        }
+        
+        return nil
+    }
+    
     public func getCurrentContent() -> (String, String) {
-        if let quote = currentQuote, let content = quote.content, let author = quote.author {
+        let quote = currentQuote.value
+        if let content = quote.content, let author = quote.author {
             return (content, author)
         }
         
         return ("No Quote Found", "System")
     }
     
-    public func removeQuote(id: String) -> Bool {
-        let quoteListVM = QuoteListViewModel()
-        return quoteListVM.removeQuoteFromList(quoteId: id)
+    @discardableResult
+    public func removeCurrentQuote() -> Bool {
+        let quote = currentQuote.value
+        if let id = quote._id {
+            let quoteListVM = QuoteListViewModel()
+            return quoteListVM.removeQuoteFromList(quoteId: id)
+        }
+        
+        return false
     }
     
     public func isCurrentQuoteSaved() -> Bool {
-        let quoteListVM = QuoteListViewModel()
-        return (currentQuote != nil && quoteListVM.isQuoteSaved(quoteId: currentQuote!._id!))
+        let quote = currentQuote.value
+        if let id = quote._id {
+            let db = DatabaseService()
+            
+            do {
+                let count = try db.countEntity(ifType: QuoteItem.self, withID: id)
+                
+                return count != 0
+            } catch {
+                print(error)
+            }
+        }
+        
+        return false
     }
 }

@@ -7,9 +7,59 @@
 
 import UIKit
 import CoreData
+import RxSwift
+import RxCocoa
+import RxDataSources
+
+struct SectionOfQuoteItem {
+    var header: String?
+    var items: [Item]
+}
+extension SectionOfQuoteItem: AnimatableSectionModelType {
+    typealias Identity = String?
+    typealias Item = QuoteItem
+    
+    var identity: String? { return header }
+    
+    init(original: SectionOfQuoteItem, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+extension QuoteItem: IdentifiableType {
+    public typealias Identity = String?
+    
+    public var identity: String? { return id }
+}
 
 class QuoteListTableViewController: UITableViewController {
     private let quoteListVM = QuoteListViewModel()
+    private let disposeBag = DisposeBag()
+    
+    let dataSource = RxTableViewSectionedAnimatedDataSource<SectionOfQuoteItem>(
+        animationConfiguration: AnimationConfiguration(insertAnimation: .none, reloadAnimation: .right, deleteAnimation: .fade),
+        configureCell: { _, table, idxPath, item in
+            let cell = table.dequeueReusableCell(withIdentifier: "quoteCell", for: idxPath) as! QuoteTableViewCell
+            
+            cell.lbQuote.text = item.content!
+            cell.lbAuthor.text = item.author!
+            
+            // Change background color
+            if idxPath.row % 2 == 1 {
+                cell.backgroundColor = .systemGray4
+            }
+            
+            return cell
+        },
+        titleForHeaderInSection: { ds, section -> String? in
+            return ds[section].header
+        },
+        canEditRowAtIndexPath: { _, _ in
+            return true
+        }
+    )
+    
+    var sections: BehaviorSubject<[SectionOfQuoteItem]> = BehaviorSubject(value: [SectionOfQuoteItem]())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,74 +67,24 @@ class QuoteListTableViewController: UITableViewController {
         // Config the rows to have dynamic height
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
+        
+        quoteListVM.quoteList.asObservable()
+            .bind(onNext: { [weak self] _ in
+                self?.refreshSections()
+            }).disposed(by: disposeBag)
+        
+        sections
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemDeleted
+            .bind(onNext: { [weak self] indexPath in
+                self?.quoteListVM.removeQuoteFromIndex(indexPath.row)
+                self?.refreshSections()
+            }).disposed(by: disposeBag)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+    private func refreshSections() {
+        sections.onNext([SectionOfQuoteItem(header: nil, items: quoteListVM.quoteList.value)])
     }
-
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return quoteListVM.quoteListLength()
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let quoteCell = tableView.dequeueReusableCell(withIdentifier: "quoteCell", for: indexPath) as! QuoteTableViewCell
-
-        let (content, author) = quoteListVM.getContentFromIndex(indexPath.row)
-        quoteCell.lbQuote.text = "“"+content!+"”"
-        quoteCell.lbAuthor.text = author!
-        
-        // Change background color
-        if indexPath.row % 2 == 1 {
-            quoteCell.backgroundColor = .systemGray4
-        }
-
-        return quoteCell
-    }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            quoteListVM.removeQuoteFromIndex(indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-//        else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
-    }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -6,16 +6,23 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class QuoteListViewModel {
-    private static var quoteList: [QuoteItem]?
+    public let quoteList: BehaviorRelay<[QuoteItem]> = BehaviorRelay(value: [QuoteItem]())
+    private let disposeBag = DisposeBag()
     
     public init() {
         do {
-            if QuoteListViewModel.quoteList == nil {
-                let dbService: DatabaseService = DatabaseService()
-                QuoteListViewModel.quoteList = try dbService.fetchAll(itemType: QuoteItem.self) as? [QuoteItem]
-            }
+            try refreshList()
+            
+            // Subscrite to database save event
+            let db = DatabaseService()
+            let saveEvent = db.getContextDidSaveEvent()
+            saveEvent.bind(onNext: { [weak self] _ in
+                try? self?.refreshList()
+            }).disposed(by: disposeBag)
         } catch let error as NSError {
             fatalError("Unable to load the app's database. Please, try again.\nError: \(error.localizedDescription)")
         }
@@ -26,51 +33,39 @@ class QuoteListViewModel {
     ///     If there is already elements in the **local** `quoteList` it doesn't overwrite the current **local** quotes. In this case, it just returns the current list.
     @discardableResult
     public func getQuoteList() -> [QuoteItem]? {
-        var quoteList = QuoteListViewModel.quoteList!
-        quoteList.sort(by: { $0.dateAdded! > $1.dateAdded! })
+        let quoteItems = quoteList.value
         
-        return quoteList
+        return quoteItems
     }
     
     public func getContentFromIndex(_ index: Int) -> (String?, String?) {
-        let quote = QuoteListViewModel.quoteList![index]
+        let quote = quoteList.value[index]
         
         return (quote.content, quote.author)
     }
     
     public func isQuoteSaved(quoteId id: String) -> Bool {
-        let search = QuoteListViewModel.quoteList!.filter { $0.id == id }
+        let search = quoteList.value.filter { $0.id == id }
         return search.count != 0
     }
     
     public func quoteListLength() -> Int {
-        return QuoteListViewModel.quoteList!.count
+        return quoteList.value.count
     }
     
-    public func addToQuoteList(quote: QuoteItem) throws -> Bool {
-        if let quoteID = quote.id, !isQuoteSaved(quoteId: quoteID) {
-            let dbService = DatabaseService()
-            try dbService.createOne(item: quote)
-            
-            QuoteListViewModel.quoteList!.append(quote)
-            return true
-        }
-            
-        return false
+    public func refreshList() throws {
+        let db: DatabaseService = DatabaseService()
+        let quoteItems = try db.fetchAll(itemType: QuoteItem.self) as! [QuoteItem]
+        quoteList.accept(quoteItems)
     }
     
     @discardableResult
     public func removeQuoteFromList(quoteId: String) -> Bool {
-        let quotes = QuoteListViewModel.quoteList!.filter { $0.id == quoteId }
+        let quotes = quoteList.value.filter { $0.id == quoteId }
         
         if let quote = quotes.first {
-            let dbService = DatabaseService()
-            try! dbService.deleteOne(item: quote)
-            
-            let index = quotes.firstIndex(of: quote)
-            QuoteListViewModel.quoteList!.remove(at: index!)
-            
-            return true
+            let db = DatabaseService()
+            try! db.deleteOne(item: quote)
         }
         
         return false
@@ -78,7 +73,7 @@ class QuoteListViewModel {
     
     @discardableResult
     public func removeQuoteFromIndex(_ index: Int) -> Bool {
-        let quote = QuoteListViewModel.quoteList![index]
+        let quote = quoteList.value[index]
         
         return removeQuoteFromList(quoteId: quote.id!)
     }
